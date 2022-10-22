@@ -1,13 +1,10 @@
-node('workers') {
-	try {
-		stage('Checkout') {
-			echo "Checkout source code from scm"
-			checkout scm
+pipeline {
+	agent workers
+	stages {
+		stage('Stage 1') {
+			steps {
+				echo 'Hello World!'
+			}
 		}
-	} catch(err) {
-		echo "Handling errors"
-	} finally {
-		echo "Cleaning up"
 	}
 }
-
