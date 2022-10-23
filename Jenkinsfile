@@ -10,7 +10,13 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
+				echo 'install npm'
 				sh 'npm install'
+
+				echo 'run npm ci'
+				sh 'npm ci'
+
+				echo 'check node version'
 				sh 'node --version'
 			}
 		}
