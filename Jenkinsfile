@@ -23,7 +23,7 @@ pipeline {
 		stage('unit tests') {
 			steps {
 				echo 'run unit test'
-				sh 'npm run test -- --coverage --watchAll=false'
+				sh 'npm run test -- --coverage --watchAll=false --reporters=default --coverageReporters=cobertura'
 				echo 'run code coverage'
 				cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: '**/cobertura-coverage.xml', conditionalCoverageTargets: '70, 0, 0', failUnhealthy: false, failUnstable: false, lineCoverageTargets: '80, 40, 40', maxNumberOfBuilds: 0, methodCoverageTargets: '80, 0, 0', onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false
 			}
